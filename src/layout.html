@@ -1,0 +1,243 @@
+<div id="game"></div>
+<div id="vignette"></div>
+<div id="lowhp"></div>
+<div id="bloodScreen"></div>
+<div id="dmgOverlay"></div>
+<div id="flash"></div>
+
+<div id="scope"><div class="lens"></div><div class="reticle"><span class="h"></span><span class="v"></span><span class="c"></span></div></div>
+<div id="reddot"></div>
+<div id="dmgNums"></div>
+<div id="hitIndicators"></div>
+
+<div id="killcam"><div id="kcTitle">HEADSHOT</div><div id="kcSub"></div><div class="kcHint">CLICK / SPACE TO SKIP</div></div>
+<div id="slowmoTag"><b>PRECISION KILL</b><span>×0.15 SPEED</span></div>
+
+<div id="hud" class="hidden">
+  <div id="topBox" class="brk mono">
+    <span><span class="lbl" id="tl0"></span><span class="v" id="tv0"></span></span>
+    <span><span class="lbl" id="tl1"></span><span class="v" id="tv1"></span></span>
+    <span><span class="lbl" id="tl2"></span><span class="v" id="tv2"></span></span>
+    <span id="diffBadge" class="lbl"></span>
+  </div>
+  <div id="objPanel" class="brk hidden"></div>
+  <div id="waypoints"></div>
+  <div id="holdBar" class="hidden"><b>HOLD E</b><div class="track"><i></i></div></div>
+  <div id="bulletTimeBar" class="hidden"></div>
+  <div id="minimapWrap" class="brk"><div id="minimapMask"><canvas id="minimap" width="180" height="180"></canvas></div></div>
+  <div id="fps" class="brk mono">-- FPS</div>
+  <div id="killfeed"></div>
+  <div id="hpBox" class="brk">
+    <div class="lbl">INTEGRITY</div>
+    <div id="healthNum" class="mono">100</div>
+    <div id="healthBar"><div id="healthFill"></div></div>
+    <div id="stamBar"><div id="stamFill"></div></div>
+  </div>
+  <div id="ammoBox" class="brk">
+    <div id="reloadHint"></div>
+    <div id="weaponName">KESTREL C4</div>
+    <div id="ammoRow" class="mono"><span id="ammoMag">30</span> <span id="ammoRes">/ 120</span></div>
+  </div>
+  <div id="inventoryUI"></div>
+  <div id="nvgStatus" class="mono"><b>N</b><span id="nvgState">NIGHT VISION OFF</span><i>M · GREEN / BLUE</i></div>
+  <div id="nvgHint"><b>N</b> DARK AREA · NIGHT VISION RECOMMENDED</div>
+  <div id="breathBar"><div class="lbl">HOLD SHIFT · STEADY AIM</div><div class="track"><div id="breathFill"></div></div></div>
+  <div id="hint">WASD MOVE · SHIFT SPRINT · C / CTRL CROUCH · Z PRONE · C WHILE SPRINTING SLIDE · SPACE JUMP · Q / E LEAN · V RIFLE BUTT · F KICK<br>
+    LMB FIRE · RMB AIM · SHIFT (SCOPED) HOLD BREATH · R RELOAD · 1-3 PRIMARIES · 4-5 SECONDARIES · 6 MELEE · 7 LAUNCHER · G / T GRENADES · I INVENTORY · WHEEL / X SWITCH · E PICK UP / INTERACT<br>
+    N NIGHT VISION · M NIGHT VISION GREEN / BLUE</div>
+  <div id="interactHint">PRESS E TO PICK UP</div>
+  <div id="crosshair"><span class="t"></span><span class="b"></span><span class="l"></span><span class="r"></span><span class="dot"></span></div>
+  <div id="hitmarker"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>
+</div>
+
+<div id="waveBanner"><h2 id="bannerH"></h2><p id="bannerP"></p></div>
+<div id="locBanner"><small></small><b></b><i></i></div>
+<div id="respawn" class="hidden"><div class="lbl">YOU WERE KILLED</div><h2>RESPAWN IN <span id="respawnT">4</span></h2></div>
+
+<div id="touchUI" class="hidden">
+  <div id="tzLook"></div>
+  <div id="tzMove"></div>
+  <div id="joyBase"><div id="joyKnob"></div></div>
+  <button class="tb" id="tbPause" data-a="pause" aria-label="Pause"><i></i><i></i></button>
+  <div id="touchSlots"></div>
+  <div id="tcluster">
+    <button class="tb t-swap" data-a="swap" aria-label="Swap to the last weapon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/></svg><span>SWAP</span></button>
+    <button class="tb t-nv" data-a="nv" aria-label="Night vision"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5c0-1.4 1.1-2.5 2.5-2.5h13c1.4 0 2.5 1.1 2.5 2.5V14c0 1.4-1.1 2.5-2.5 2.5H15l-1.6-2.2a1.8 1.8 0 0 0-2.8 0L9 16.5H5.5C4.1 16.5 3 15.4 3 14z"/><circle cx="7.6" cy="12.2" r="1.7"/><circle cx="16.4" cy="12.2" r="1.7"/><path d="M8 8V6.2h8V8"/></svg><span>OFF</span></button>
+    <button class="tb t-melee" data-a="melee" aria-label="Rifle-butt strike"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h11l3 3.2-3 3.3h-5l-1.6 5.5H5l1.4-5.5H3.5z"/><path d="M17.5 9.7 21 8.2"/></svg><span>BUTT</span></button>
+    <button class="tb t-gren" data-a="gren" aria-label="Throw grenade"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="11" cy="14.5" rx="5.6" ry="6.3"/><path d="M8.5 7.3V5.6h5v1.7M13.5 6.2l4.6 1.2-.8 1.9-3.8-1.1M5.6 12.5h10.8M5.4 16.5h11.2"/><circle cx="19.2" cy="6.4" r="1.4"/></svg><span id="tbGrenN">×2</span></button>
+    <button class="tb t-kick" data-a="kick" aria-label="Kick"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h4.5v8.2l7 2.6c1.7.6 2.8 2.2 2.8 4v1.2H5z"/><path d="M5 16.5h14.2"/></svg><span>KICK</span></button>
+    <button class="tb t-breath" data-a="breath" aria-label="Hold breath"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h10.5a2.5 2.5 0 1 0-2.5-2.5M3 13h15.5a2.5 2.5 0 1 1-2.5 2.5M3 17h7"/></svg><span>BREATH</span></button>
+    <button class="tb t-prone" data-a="prone" aria-label="Prone"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="19" cy="13.2" r="2"/><path d="M2.5 17.5h19M3.5 15.4l5.4-1.4 3.8 1h4.3M8.9 14l1.6-2.4 3.1.6"/></svg><span>PRONE</span></button>
+    <button class="tb t-reload" data-a="reload" aria-label="Reload"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 1 1-2.3-5.4"/><path d="M19.6 3.6v4.6H15"/><rect x="10" y="9" width="4" height="6.6" rx=".6"/></svg><span>RELOAD</span></button>
+    <button class="tb t-jump" data-a="jump" aria-label="Jump"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13.5 12 6.5l7 7M5 19l7-7 7 7"/></svg><span>JUMP</span></button>
+    <button class="tb t-use" data-a="use" aria-label="Use"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 12V5.2a1.6 1.6 0 0 1 3.2 0V11M11.7 10.5V4.1a1.6 1.6 0 0 1 3.2 0v6.6M14.9 10.9V5.6a1.6 1.6 0 0 1 3.2 0V14c0 4-2.6 6.6-6.3 6.6-2.4 0-4-1-5.3-3L4 13.5a1.6 1.6 0 0 1 2.6-1.8l1.9 2.4"/></svg><span>USE</span></button>
+    <button class="tb t-crouch" data-a="crouch" aria-label="Crouch"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.6" r="2"/><path d="M12 7.2v5l4.5 2.4V20M12 12.2 8 15.4l2.5 4.6M8.5 9.5 12 8.4l3.5 1.6"/></svg><span>CROUCH</span></button>
+    <button class="tb t-fire" data-a="fire" aria-label="Fire"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg><span>FIRE</span></button>
+    <button class="tb t-aim" data-a="aim" aria-label="Aim"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 3.5v4.9M12 15.6v4.9M3.5 12h4.9M15.6 12h4.9"/></svg><span>AIM</span></button>
+  </div>
+  <div id="touchWeap">
+    <button class="tb tw-prev" data-a="prev" aria-label="Previous weapon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg></button>
+    <button class="tb tw-cur" data-a="inv" aria-label="Inventory"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="5.6" r="1.3"/><circle cx="17.5" cy="9" r="1.3"/><circle cx="17.5" cy="15" r="1.3"/><circle cx="12" cy="18.4" r="1.3"/><circle cx="6.5" cy="15" r="1.3"/><circle cx="6.5" cy="9" r="1.3"/></svg><span class="twN" id="twName">—</span><span class="twA" id="twAmmo"></span></button>
+    <button class="tb tw-next" data-a="next" aria-label="Next weapon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg></button>
+  </div>
+</div>
+
+<div id="loadingScreen">
+  <div class="lsArt"></div><div class="lsShade"></div>
+  <div class="lsBox">
+    <div class="lsBrand"><svg class="logo" viewBox="0 0 44 30" aria-hidden="true"><path d="M3 17 22 5l19 12" /><path d="M3 27 22 15l19 12" /></svg><h1>ALPHA <b>STRIKE</b> ZERO</h1></div>
+    <div class="lsTag">OPERATION FIRESTORM · TACTICAL SHOOTER</div>
+    <div id="loadBarWrap"><div id="loadBar"></div></div>
+    <div id="loadText">LOADING ASSETS...</div>
+  </div>
+</div>
+
+<div id="menu" class="screen hidden" data-view="home">
+  <div id="menuShade"></div>
+  <header id="menuTop">
+    <div class="brand"><svg class="logo" viewBox="0 0 44 30" aria-hidden="true"><path d="M3 17 22 5l19 12" /><path d="M3 27 22 15l19 12" /></svg><h1>ALPHA <b>STRIKE</b> ZERO</h1><div class="tag">OPERATION FIRESTORM · TACTICAL SHOOTER</div></div>
+    <div class="topBtns">
+      <button class="iconBtn" id="intelBtn"><svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.8"/></svg><span>INTEL</span></button>
+      <button class="iconBtn" id="howBtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.3 9.2a2.8 2.8 0 1 1 3.9 2.6c-.8.4-1.2.9-1.2 1.7v.7" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="17.2" r="1.1"/></svg><span><i class="l">HOW TO PLAY</i><i class="s">HELP</i></span></button>
+      <button class="iconBtn" id="settingsBtn"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.9a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5A3.5 3.5 0 1 1 13 8.5a3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></svg><span>SETTINGS</span></button>
+    </div>
+  </header>
+  <nav id="menuNav">
+    <button class="nav active" data-nav="home"><svg viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7M6 9.5V20h4.5v-5h3v5H18V9.5"/></svg><span>HOME</span></button>
+    <button class="nav" data-nav="play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg><span>PLAY</span></button>
+    <button class="nav" data-nav="locations"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span>LOCATIONS</span></button>
+    <button class="nav" data-nav="armory"><svg viewBox="0 0 24 24"><path d="M2.5 9h13l2-2h4v4h-3l-1 2h-5l-1 5H8l1-5H5l-1 2H2.5z"/></svg><span>ARMORY</span></button>
+    <button class="nav" data-nav="intel"><svg viewBox="0 0 24 24"><path d="M12 2.5 4 6v5.5c0 4.6 3.4 8.6 8 9.5 4.6-.9 8-4.9 8-9.5V6z"/><path d="M12 8v7M8.5 11.5h7"/></svg><span>INTEL</span></button>
+    <button class="nav" data-nav="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.9 1.9M16.6 16.6l1.9 1.9M5.5 18.5l1.9-1.9M16.6 7.4l1.9-1.9"/></svg><span>SETTINGS</span></button>
+    <button class="nav" data-nav="how"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.3a2.7 2.7 0 1 1 3.8 2.5c-.8.4-1.2.9-1.2 1.7v.6"/><circle cx="12" cy="17" r=".6"/></svg><span>HOW TO PLAY</span></button>
+  </nav>
+  <main id="menuMain">
+    <div class="mmHead"><div class="kick">WELCOME BACK, OPERATOR</div><h2>READY FOR DEPLOYMENT</h2><div id="menuSub"></div></div>
+    <div class="mmBar">
+      <div id="modeTabs">
+        <button class="tab" data-mode="campaign"><span class="l">CAMPAIGN</span><span class="s">CAMPAIGN</span></button>
+        <button class="tab" data-mode="tdm"><span class="l">TEAM DEATHMATCH</span><span class="s">TEAM DM</span></button>
+        <button class="tab" data-mode="survival"><span class="l">SURVIVAL</span><span class="s">SURVIVAL</span></button>
+        <button class="tab" data-mode="endless"><span class="l">ENDLESS</span><span class="s">ENDLESS</span></button>
+      </div>
+    </div>
+    <div id="modeDesc"></div>
+    <div class="loadWrap"><div class="grpTitle">LOADOUT <i>CLICK TO OPEN THE ARMORY</i></div><div id="menuLoadout"></div></div>
+    <div class="menuCols">
+      <div class="mapCol" id="campaignCol">
+        <div class="grpTitle">MISSIONS</div>
+        <div id="missionList" class="maps"></div>
+        <div id="briefing" class="brk"></div>
+      </div>
+      <div class="mapCol hidden" id="mapsCol">
+        <div class="grpTitle">OUTDOOR OPERATIONS</div>
+        <div id="mapsOutdoor" class="maps"></div>
+        <div class="grpTitle">INDOOR OPERATIONS</div>
+        <div id="mapsIndoor" class="maps"></div>
+        <div id="mapInfo"></div>
+      </div>
+    </div>
+  </main>
+  <aside class="sidePanel">
+    <section class="sp spFeat"><div class="grpTitle">FEATURED LOCATION</div><div id="featured"><div class="fimg"></div><b></b></div></section>
+    <section class="sp spDiff"><div class="grpTitle">DIFFICULTY</div>
+      <div id="difficultyOptions" class="diff-group">
+        <button class="chip diff" data-d="Amateur">AMATEUR</button>
+        <button class="chip diff" data-d="Pro">PRO</button>
+        <button class="chip diff active" data-d="Top Class">TOP CLASS</button>
+        <button class="chip diff" data-d="Legendary">LEGENDARY</button>
+      </div>
+      <div id="diffDesc"></div>
+    </section>
+    <section class="sp spDead"><div class="grpTitle" id="deadTitle">DEADLIEST HOSTILE</div><div id="deadliest"></div><button class="btn sub" id="viewIntelBtn">VIEW INTEL</button></section>
+  </aside>
+  <button id="playBtn" class="btn deploy"><span class="dl">DEPLOY</span><kbd>ENTER</kbd><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M12 6l6 6-6 6"/></svg></button>
+</div>
+
+<div id="settingsWin" class="win hidden"><div class="winBox brk">
+  <div class="winHead"><span>SETTINGS</span><button class="winX" aria-label="Close">✕</button></div>
+  <div class="subtabs" id="setTabs"><button data-t="c" class="active">CONTROLS</button><button data-t="a">AUDIO</button><button data-t="g">GRAPHICS</button><button data-t="h">GAMEPLAY</button></div>
+  <div class="settings" data-tab="c">
+    <div class="row" data-g="c"><span>SENSITIVITY <span id="sensV" class="mono">1.0</span></span><input type="range" id="sensR" min="0.3" max="3" step="0.1" value="1"></div>
+    <div class="row" data-g="c"><span>AIM SENSITIVITY <span id="adsSensV" class="mono">0.75</span></span><input type="range" id="adsSensR" min="0.3" max="1.5" step="0.05" value="0.75"></div>
+    <div class="row" data-g="c"><span>FIELD OF VIEW <span id="fovV" class="mono">75</span></span><input type="range" id="fovR" min="60" max="110" step="1" value="75"></div>
+    <div class="row" data-g="c"><span>TOUCH CONTROLS</span><button class="btn sub" id="toggleTouch">AUTO</button></div>
+    <div class="row" data-g="c" data-touch="1"><span>TOUCH LOOK SPEED <span id="touchSensV" class="mono">1.0</span></span><input type="range" id="touchSensR" min="0.4" max="2.5" step="0.1" value="1"></div>
+    <div class="row" data-g="c" data-touch="1"><span>AIM BUTTON</span><button class="btn sub" id="toggleTouchAim">TOGGLE</button></div>
+    <div class="row" data-g="c"><span>FULLSCREEN</span><button class="btn sub" id="toggleFullscreen">OFF</button></div>
+    <div class="row" data-g="a"><span>MASTER VOL <span id="volV" class="mono">70</span></span><input type="range" id="volR" min="0" max="100" step="5" value="70"></div>
+    <div class="row" data-g="a"><span>SFX VOL <span id="sfxVolV" class="mono">100</span></span><input type="range" id="sfxVolR" min="0" max="100" step="5" value="100"></div>
+    <div class="row" data-g="a"><span>MUSIC VOL <span id="musicVolV" class="mono">40</span></span><input type="range" id="musicVolR" min="0" max="100" step="5" value="40"></div>
+    <div class="row" data-g="g"><span>GRAPHICS</span><button class="btn sub" id="toggleQuality">HIGH</button></div>
+    <div class="row" data-g="g"><span>NIGHT VISION COLOR</span><button class="btn sub" id="toggleNvgMode">GREEN</button></div>
+    <div class="row" data-g="g"><span>BULLET CAM / KILL CAM</span><button class="btn sub" id="toggleKillCam">ON</button></div>
+    <div class="row" data-g="g"><span>SLOW-MO KILLS</span><button class="btn sub" id="toggleSlowmo">ON</button></div>
+    <div class="row" data-g="g"><span>MOTION BLUR</span><button class="btn sub" id="toggleMotionBlur">ON</button></div>
+    <div class="row" data-g="g"><span>AMBIENT OCCLUSION</span><button class="btn sub" id="toggleSSAO">ON</button></div>
+    <div class="row" data-g="h"><span>MINIMAP</span><button class="btn sub" id="toggleMinimap">ON</button></div>
+    <div class="row" data-g="h"><span>BLOOD FX</span><button class="btn sub" id="toggleBlood">ON</button></div>
+    <div class="row" data-g="h"><span>SHOW FPS</span><button class="btn sub" id="toggleFPS">ON</button></div>
+    <div class="row" data-g="h"><span>AUTO RELOAD</span><button class="btn sub" id="toggleAutoReload">ON</button></div>
+    <div class="row" data-g="h"><span>HIT INDICATOR</span><button class="btn sub" id="toggleHitIndicator">ON</button></div>
+    <div class="row" data-g="h"><span>DAMAGE NUMBERS</span><button class="btn sub" id="toggleDmgNumbers">ON</button></div>
+  </div>
+</div></div>
+
+<div id="howWin" class="win hidden"><div class="winBox brk wide">
+  <div class="winHead"><span>HOW TO PLAY</span><button class="winX" aria-label="Close">✕</button></div>
+  <div class="subtabs" id="howTabs"><button data-t="c" class="active">CONTROLS</button><button data-t="w">WEAPONS</button><button data-t="m">MODES</button><button data-t="t">TEAMS · TIPS</button></div>
+  <div class="howCols" data-tab="c">
+    <div>
+      <div class="grpTitle" data-g="c">CONTROLS</div>
+      <div class="ctrls ctrlsKb" data-g="c"><b>WASD</b> move · <b>SHIFT</b> sprint · <b>C</b> crouch / slide · <b>Z</b> go prone / crawl · <b>SPACE</b> jump · <b>LMB</b> fire · <b>RMB</b> aim<br>
+        <b>Q / E</b> lean left / right · <b>V</b> rifle-butt strike · <b>F</b> kick<br>
+        <b>SHIFT</b> (scoped) hold breath · <b>R</b> reload · <b>1-3</b> primaries · <b>4-6</b> secondaries · <b>7</b> melee · <b>8</b> launcher · <b>G</b> lethal / <b>T</b> tactical grenade · <b>I</b> inventory wheel · <b>WHEEL / X</b> switch · <b>E</b> pick up / hold to interact<br>
+        <b>N</b> night vision · <b>M</b> night vision green / blue · <b>ESC</b> pause</div>
+      <div class="ctrls ctrlsTouch" data-g="c"><b>LEFT THUMB</b> drag to move · push to the edge to sprint · <b>DRAG ANYWHERE ELSE</b> to look<br>
+        <b>FIRE</b> shoot (drag on it to aim while firing) · <b>AIM</b> down the sights · <b>RELOAD</b> · <b>JUMP</b> · <b>CROUCH</b> (tap again to stand; sprinting slides) · <b>PRONE</b><br>
+        <b>BUTT</b> rifle-butt strike · <b>KICK</b> · <b>GREN</b> grenade · <b>SWAP</b> last weapon · <b>NV</b> night vision · <b>USE</b> pick up / hold to interact · <b>HOLD BREATH</b> while scoped<br>
+        <b>1-6</b> strip: switch weapon · <b>II</b> top right: pause</div>
+      <div class="grpTitle" data-g="w">WEAPONS</div>
+      <p data-g="w">Build your loadout in the <b>ARMORY</b>: three primaries, two secondaries, a melee weapon and grenades, used in every mode. 128 catalogue weapons are available to unlock with your level or with kills and headshots in their class. Optics, muzzle devices, grips, lasers, lights and magazines can be changed per weapon. With a red dot or holographic sight the reticle sits exactly on the point of aim; magnified scopes (3.5x and up) switch to a full scope view. A laser marks the exact impact point - the beam shows at night and in dark places. Drums and barrels explode when shot and set off the ones next to them.</p>
+      <div class="grpTitle" data-g="t">TEAMS</div>
+      <p data-g="t">A red arrow and name mark every hostile, a blue arrow your squad (visible through walls). Under night vision hostiles glow red and your squad blue. Elite commandos appear more often on harder difficulties - open INTEL for the threat ranking.</p>
+    </div>
+    <div>
+      <div class="grpTitle" data-g="m">MODES</div>
+      <p data-g="m"><b>CAMPAIGN</b> twelve story missions with step-by-step objectives.</p>
+      <p data-g="m"><b>TEAM DEATHMATCH</b> BRAVO squad against hostile commandos: kills, the moving HARDPOINT, the marked HVT and dog tags all score; killstreaks give a UAV sweep, a resupply and an airstrike.</p>
+      <p data-g="m"><b>SURVIVAL</b> rounds of assaults with limited ammo and half-health regeneration. Every round has a field objective; extraction can be called every 5th round.</p>
+      <p data-g="m"><b>ENDLESS</b> ever stronger waves with infinite ammo - launchers, sniper / scoped rifles and grenades excepted: they get a small random supply every game (also in TEAM DEATHMATCH).</p>
+      <div class="grpTitle" data-g="t">TIPS</div>
+      <p data-g="t">Stay in cover and peek - Top Class and Legendary hostiles flank, dive out of your fire and rush you while you reload. Switch on night vision (N) when the HUD recommends it.</p>
+    </div>
+  </div>
+</div></div>
+
+<div id="intelWin" class="win hidden"><div class="winBox brk wide">
+  <div class="winHead"><span>ENEMY INTEL · THREAT RANKING</span><button class="winX" aria-label="Close">✕</button></div>
+  <div id="intelList"></div>
+  <div class="pagerBar" id="intelPager"></div>
+</div></div>
+
+<div id="pause" class="screen hidden">
+  <div class="pauseBox brk">
+    <div class="pauseHead"><span class="pzKick">OPERATION SUSPENDED</span><h1>PAUSED</h1><div class="pzLoc" id="pauseLoc"></div></div>
+    <button class="btn" id="resumeBtn">RESUME</button>
+    <button class="btn alt" id="pauseRestartBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 1 1-2.3-5.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M19.6 3.6v4.6H15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>RESTART</button>
+    <div id="restartOpts">
+      <label class="chk"><input type="checkbox" id="optNewWeapons"><i></i><span><b>CHANGE WEAPONS</b><small>Random unlocked weapons from the Armory</small></span></label>
+      <label class="chk" id="optNewLocationRow"><input type="checkbox" id="optNewLocation"><i></i><span><b>CHANGE LOCATION</b><small>A new Random Ops location: outdoor or indoor</small></span></label>
+      <div class="roNote">APPLIED WHEN YOU RESTART · STARTS A NEW GAME</div>
+    </div>
+    <div class="pauseRow"><button class="btn sub" id="pauseSettingsBtn">SETTINGS</button><button class="btn sub" id="quitBtn">ABORT TO MENU</button></div>
+  </div>
+</div>
+
+<div id="death" class="screen hidden">
+  <h1 id="resultTitle">K.I.A.</h1>
+  <div class="tag" id="resultTag">OPERATIVE DOWN</div>
+  <div id="deathStats" class="mono"></div>
+  <button class="btn" id="restartBtn">REDEPLOY</button>
+  <button class="btn sub" id="menuBtn">RETURN TO MENU</button>
+</div>

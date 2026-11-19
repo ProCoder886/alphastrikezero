@@ -1,0 +1,727 @@
+{
+ "levels": {
+  "f_pistol9": 0.8,
+  "f_pistol45": 0.85,
+  "f_pistol50": 0.95,
+  "f_revolver": 0.95,
+  "f_smg9": 0.78,
+  "f_smg45": 0.8,
+  "f_pdw": 0.78,
+  "f_carbine": 0.88,
+  "f_ar556": 0.9,
+  "f_bullpup": 0.88,
+  "f_ak545": 0.9,
+  "f_ak762": 0.95,
+  "f_br762": 0.97,
+  "f_lmg556": 0.92,
+  "f_lmg762": 0.97,
+  "f_rotary": 0.7,
+  "f_dmr": 0.97,
+  "f_sniper308": 1.0,
+  "f_sniper338": 1.0,
+  "f_amr50": 1.0,
+  "f_sgpump": 1.0,
+  "f_sgsemi": 0.97,
+  "f_sgdouble": 1.0,
+  "f_sgauto": 0.92,
+  "f_carbine_b": 0.88,
+  "f_carbine_c": 0.88,
+  "f_ar556_b": 0.9,
+  "f_ar556_c": 0.9,
+  "f_bullpup_b": 0.88,
+  "f_bullpup_c": 0.88,
+  "f_ak545_b": 0.9,
+  "f_ak545_c": 0.9,
+  "f_ak762_b": 0.95,
+  "f_ak762_c": 0.95,
+  "f_br762_b": 0.97,
+  "f_br762_c": 0.97,
+  "f_lmg556_b": 0.92,
+  "f_lmg556_c": 0.92,
+  "f_lmg762_b": 0.97,
+  "f_lmg762_c": 0.97,
+  "f_smg9_b": 0.78,
+  "f_smg9_c": 0.78,
+  "f_smg45_b": 0.8,
+  "f_smg45_c": 0.8,
+  "f_pdw_b": 0.78,
+  "f_pdw_c": 0.78,
+  "f_rotary_b": 0.7,
+  "f_rotary_c": 0.7,
+  "f_sgauto_b": 0.92,
+  "f_sgauto_c": 0.92,
+  "f_pistol9_b": 0.8,
+  "f_pistol9_c": 0.8,
+  "f_gl40": 0.85,
+  "f_rocket": 1.0,
+  "f_sup_pistol": 0.5,
+  "f_sup_smg": 0.5,
+  "f_sup_rifle": 0.56,
+  "f_sup_sniper": 0.62,
+  "ft_sniper": 0.62,
+  "ft_amr": 0.62,
+  "ft_dmr": 0.62,
+  "ft_rifle": 0.5,
+  "ft_smg": 0.5,
+  "ft_lmg": 0.5,
+  "ft_pistol": 0.5,
+  "ft_sg": 0.5,
+  "ft_rotary": 0.5,
+  "ft_sup": 0.5,
+  "r_ar_tac": 0.62,
+  "r_ar_empty": 0.62,
+  "r_ak_tac": 0.62,
+  "r_ak_empty": 0.62,
+  "r_bullpup_tac": 0.62,
+  "r_bullpup_empty": 0.62,
+  "r_smg_tac": 0.62,
+  "r_smg_empty": 0.62,
+  "r_smgbox_tac": 0.62,
+  "r_smgbox_empty": 0.62,
+  "r_pdw_tac": 0.62,
+  "r_pdw_empty": 0.62,
+  "r_lmgmag_tac": 0.62,
+  "r_lmgmag_empty": 0.62,
+  "r_dmr_tac": 0.62,
+  "r_dmr_empty": 0.62,
+  "r_sniper_tac": 0.62,
+  "r_sniper_empty": 0.62,
+  "r_pistol_tac": 0.62,
+  "r_pistol_empty": 0.62,
+  "r_revolver_tac": 0.62,
+  "r_break_tac": 0.62,
+  "r_lmgbelt_tac": 0.62,
+  "r_lmgbelt_empty": 0.62,
+  "r_rocket_tac": 0.62,
+  "r_tube_tac": 0.62,
+  "r_br_tac": 0.62,
+  "r_br_empty": 0.62,
+  "r_amr_tac": 0.62,
+  "r_amr_empty": 0.62,
+  "r_mgbelt_tac": 0.62,
+  "r_mgbelt_empty": 0.62,
+  "r_magnum_tac": 0.62,
+  "r_magnum_empty": 0.62,
+  "r_lsw_tac": 0.62,
+  "r_lsw_empty": 0.62,
+  "x_equip_rifle": 0.55,
+  "x_equip_pistol": 0.55,
+  "x_equip_heavy": 0.55,
+  "x_equip_blade": 0.55,
+  "x_dry": 0.6,
+  "x_shell_in": 0.6,
+  "x_pump": 0.6,
+  "x_bolt_cycle": 0.6,
+  "x_bolt_close": 0.6,
+  "x_swing_blade": 0.6,
+  "x_swing_blunt": 0.6,
+  "x_hit_blade": 0.6,
+  "x_hit_blunt": 0.6,
+  "x_spin": 0.42
+ },
+ "tails": {
+  "carbine": "ft_rifle",
+  "ar556": "ft_rifle",
+  "ak762": "ft_rifle",
+  "ak545": "ft_rifle",
+  "br762": "ft_rifle",
+  "bullpup": "ft_rifle",
+  "smg9": "ft_smg",
+  "smg45": "ft_smg",
+  "pdw": "ft_smg",
+  "lmg556": "ft_lmg",
+  "lmg762": "ft_lmg",
+  "pistol9": "ft_pistol",
+  "sgauto": "ft_sg",
+  "rotary": "ft_rotary",
+  "sup_pistol": "ft_sup",
+  "sup_smg": "ft_sup",
+  "sup_rifle": "ft_sup"
+ },
+ "reload": {
+  "r_ar_tac": {
+   "dur": 2.1,
+   "events": {
+    "magOut": 0.55,
+    "magIn": 1.5
+   }
+  },
+  "r_ar_empty": {
+   "dur": 2.36,
+   "events": {
+    "magOut": 0.5,
+    "magIn": 1.45,
+    "boltPull": 1.9,
+    "boltRelease": 1.95
+   }
+  },
+  "r_ak_tac": {
+   "dur": 2.4,
+   "events": {
+    "magOut": 0.65,
+    "magIn": 1.7
+   }
+  },
+  "r_ak_empty": {
+   "dur": 2.72,
+   "events": {
+    "magOut": 0.6,
+    "magIn": 1.62,
+    "boltPull": 2.06,
+    "boltRelease": 2.22
+   }
+  },
+  "r_bullpup_tac": {
+   "dur": 2.36,
+   "events": {
+    "magOut": 0.62,
+    "magIn": 1.68
+   }
+  },
+  "r_bullpup_empty": {
+   "dur": 2.66,
+   "events": {
+    "magOut": 0.58,
+    "magIn": 1.62,
+    "boltPull": 2.12,
+    "boltRelease": 2.28
+   }
+  },
+  "r_smg_tac": {
+   "dur": 2.0,
+   "events": {
+    "magOut": 0.5,
+    "magIn": 1.42
+   }
+  },
+  "r_smg_empty": {
+   "dur": 2.26,
+   "events": {
+    "magOut": 0.48,
+    "magIn": 1.38,
+    "boltPull": 1.82,
+    "boltRelease": 1.87
+   }
+  },
+  "r_smgbox_tac": {
+   "dur": 1.86,
+   "events": {
+    "magOut": 0.45,
+    "magIn": 1.3
+   }
+  },
+  "r_smgbox_empty": {
+   "dur": 2.1,
+   "events": {
+    "magOut": 0.42,
+    "magIn": 1.26,
+    "boltPull": 1.66,
+    "boltRelease": 1.8
+   }
+  },
+  "r_pdw_tac": {
+   "dur": 2.36,
+   "events": {
+    "magOut": 0.6,
+    "magIn": 1.7
+   }
+  },
+  "r_pdw_empty": {
+   "dur": 2.66,
+   "events": {
+    "magOut": 0.58,
+    "magIn": 1.66,
+    "boltPull": 2.14,
+    "boltRelease": 2.3
+   }
+  },
+  "r_lmgmag_tac": {
+   "dur": 3.8,
+   "events": {
+    "magOut": 0.9,
+    "magIn": 2.7
+   }
+  },
+  "r_lmgmag_empty": {
+   "dur": 4.2,
+   "events": {
+    "magOut": 0.86,
+    "magIn": 2.6,
+    "boltPull": 3.36,
+    "boltRelease": 3.56
+   }
+  },
+  "r_dmr_tac": {
+   "dur": 2.4,
+   "events": {
+    "magOut": 0.62,
+    "magIn": 1.68
+   }
+  },
+  "r_dmr_empty": {
+   "dur": 2.72,
+   "events": {
+    "magOut": 0.6,
+    "magIn": 1.62,
+    "boltPull": 2.06,
+    "boltRelease": 2.22
+   }
+  },
+  "r_sniper_tac": {
+   "dur": 2.5,
+   "events": {
+    "magOut": 0.62,
+    "magIn": 1.72
+   }
+  },
+  "r_sniper_empty": {
+   "dur": 3.0,
+   "events": {
+    "magOut": 0.6,
+    "magIn": 1.66,
+    "boltPull": 2.16,
+    "boltRelease": 2.5
+   }
+  },
+  "r_pistol_tac": {
+   "dur": 1.4,
+   "events": {
+    "magOut": 0.3,
+    "magIn": 0.95
+   }
+  },
+  "r_pistol_empty": {
+   "dur": 1.62,
+   "events": {
+    "magOut": 0.28,
+    "magIn": 0.95,
+    "boltPull": 1.22,
+    "boltRelease": 1.3
+   }
+  },
+  "r_revolver_tac": {
+   "dur": 2.6,
+   "events": {
+    "open": 0.3,
+    "magOut": 0.78,
+    "magIn": 1.75,
+    "close": 2.2
+   }
+  },
+  "r_break_tac": {
+   "dur": 2.3,
+   "events": {
+    "open": 0.3,
+    "magOut": 0.6,
+    "magIn": 1.5,
+    "close": 1.95
+   }
+  },
+  "r_lmgbelt_tac": {
+   "dur": 4.6,
+   "events": {
+    "open": 0.6,
+    "magOut": 1.5,
+    "magIn": 3.1,
+    "close": 4.0
+   }
+  },
+  "r_lmgbelt_empty": {
+   "dur": 5.3,
+   "events": {
+    "open": 0.6,
+    "magOut": 1.5,
+    "magIn": 3.1,
+    "close": 4.0,
+    "boltPull": 4.5,
+    "boltRelease": 4.76
+   }
+  },
+  "r_rocket_tac": {
+   "dur": 3.3,
+   "events": {
+    "magOut": 0.5,
+    "magIn": 2.4
+   }
+  },
+  "r_tube_tac": {
+   "dur": 3.7,
+   "events": {
+    "magOut": 0.7,
+    "magIn": 2.6
+   }
+  },
+  "r_br_tac": {
+   "dur": 2.6,
+   "events": {
+    "magOut": 0.7,
+    "magIn": 1.8
+   }
+  },
+  "r_br_empty": {
+   "dur": 2.95,
+   "events": {
+    "magOut": 0.66,
+    "magIn": 1.74,
+    "boltPull": 2.28,
+    "boltRelease": 2.44
+   }
+  },
+  "r_amr_tac": {
+   "dur": 3.3,
+   "events": {
+    "magOut": 0.9,
+    "magIn": 2.3
+   }
+  },
+  "r_amr_empty": {
+   "dur": 3.7,
+   "events": {
+    "magOut": 0.86,
+    "magIn": 2.2,
+    "boltPull": 2.86,
+    "boltRelease": 3.12
+   }
+  },
+  "r_mgbelt_tac": {
+   "dur": 5.8,
+   "events": {
+    "open": 0.756,
+    "magOut": 1.89,
+    "magIn": 3.906,
+    "close": 5.04
+   }
+  },
+  "r_mgbelt_empty": {
+   "dur": 6.5,
+   "events": {
+    "open": 0.756,
+    "magOut": 1.89,
+    "magIn": 3.906,
+    "close": 5.04,
+    "boltPull": 5.66,
+    "boltRelease": 5.94
+   }
+  },
+  "r_magnum_tac": {
+   "dur": 1.85,
+   "events": {
+    "magOut": 0.42,
+    "magIn": 1.25
+   }
+  },
+  "r_magnum_empty": {
+   "dur": 2.05,
+   "events": {
+    "magOut": 0.4,
+    "magIn": 1.24,
+    "boltPull": 1.58,
+    "boltRelease": 1.66
+   }
+  },
+  "r_lsw_tac": {
+   "dur": 2.9,
+   "events": {
+    "magOut": 0.75,
+    "magIn": 2.0
+   }
+  },
+  "r_lsw_empty": {
+   "dur": 3.25,
+   "events": {
+    "magOut": 0.7,
+    "magIn": 1.95,
+    "boltPull": 2.5,
+    "boltRelease": 2.68
+   }
+  }
+ },
+ "fire": {
+  "f_pistol9": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_pistol45": {
+   "dur": 0.48,
+   "onsetMs": 0.0
+  },
+  "f_pistol50": {
+   "dur": 0.7,
+   "onsetMs": 0.0
+  },
+  "f_revolver": {
+   "dur": 0.72,
+   "onsetMs": 0.02
+  },
+  "f_smg9": {
+   "dur": 0.34,
+   "onsetMs": 0.0
+  },
+  "f_smg45": {
+   "dur": 0.36,
+   "onsetMs": 0.0
+  },
+  "f_pdw": {
+   "dur": 0.32,
+   "onsetMs": 0.0
+  },
+  "f_carbine": {
+   "dur": 0.4,
+   "onsetMs": 0.0
+  },
+  "f_ar556": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_bullpup": {
+   "dur": 0.4,
+   "onsetMs": 0.0
+  },
+  "f_ak545": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_ak762": {
+   "dur": 0.46,
+   "onsetMs": 0.0
+  },
+  "f_br762": {
+   "dur": 0.5,
+   "onsetMs": 0.0
+  },
+  "f_lmg556": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_lmg762": {
+   "dur": 0.48,
+   "onsetMs": 0.0
+  },
+  "f_rotary": {
+   "dur": 0.2,
+   "onsetMs": 0.0
+  },
+  "f_dmr": {
+   "dur": 0.75,
+   "onsetMs": 0.0
+  },
+  "f_sniper308": {
+   "dur": 0.9,
+   "onsetMs": 0.0
+  },
+  "f_sniper338": {
+   "dur": 1.0,
+   "onsetMs": 0.0
+  },
+  "f_amr50": {
+   "dur": 1.2,
+   "onsetMs": 0.0
+  },
+  "f_sgpump": {
+   "dur": 0.95,
+   "onsetMs": 0.0
+  },
+  "f_sgsemi": {
+   "dur": 0.7,
+   "onsetMs": 0.02
+  },
+  "f_sgdouble": {
+   "dur": 1.1,
+   "onsetMs": 0.0
+  },
+  "f_sgauto": {
+   "dur": 0.44,
+   "onsetMs": 0.0
+  },
+  "f_carbine_b": {
+   "dur": 0.4,
+   "onsetMs": 0.0
+  },
+  "f_carbine_c": {
+   "dur": 0.4,
+   "onsetMs": 0.0
+  },
+  "f_ar556_b": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_ar556_c": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_bullpup_b": {
+   "dur": 0.4,
+   "onsetMs": 0.0
+  },
+  "f_bullpup_c": {
+   "dur": 0.4,
+   "onsetMs": 0.0
+  },
+  "f_ak545_b": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_ak545_c": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_ak762_b": {
+   "dur": 0.46,
+   "onsetMs": 0.0
+  },
+  "f_ak762_c": {
+   "dur": 0.46,
+   "onsetMs": 0.0
+  },
+  "f_br762_b": {
+   "dur": 0.5,
+   "onsetMs": 0.0
+  },
+  "f_br762_c": {
+   "dur": 0.5,
+   "onsetMs": 0.0
+  },
+  "f_lmg556_b": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_lmg556_c": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_lmg762_b": {
+   "dur": 0.48,
+   "onsetMs": 0.0
+  },
+  "f_lmg762_c": {
+   "dur": 0.48,
+   "onsetMs": 0.0
+  },
+  "f_smg9_b": {
+   "dur": 0.34,
+   "onsetMs": 0.0
+  },
+  "f_smg9_c": {
+   "dur": 0.34,
+   "onsetMs": 0.0
+  },
+  "f_smg45_b": {
+   "dur": 0.36,
+   "onsetMs": 0.0
+  },
+  "f_smg45_c": {
+   "dur": 0.36,
+   "onsetMs": 0.0
+  },
+  "f_pdw_b": {
+   "dur": 0.32,
+   "onsetMs": 0.0
+  },
+  "f_pdw_c": {
+   "dur": 0.32,
+   "onsetMs": 0.0
+  },
+  "f_rotary_b": {
+   "dur": 0.2,
+   "onsetMs": 0.0
+  },
+  "f_rotary_c": {
+   "dur": 0.2,
+   "onsetMs": 0.0
+  },
+  "f_sgauto_b": {
+   "dur": 0.44,
+   "onsetMs": 0.0
+  },
+  "f_sgauto_c": {
+   "dur": 0.44,
+   "onsetMs": 0.0
+  },
+  "f_pistol9_b": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_pistol9_c": {
+   "dur": 0.42,
+   "onsetMs": 0.0
+  },
+  "f_gl40": {
+   "dur": 0.7,
+   "onsetMs": 0.0
+  },
+  "f_rocket": {
+   "dur": 1.5,
+   "onsetMs": 0.0
+  },
+  "f_sup_pistol": {
+   "dur": 0.3,
+   "onsetMs": 0.0
+  },
+  "f_sup_smg": {
+   "dur": 0.3,
+   "onsetMs": 0.05
+  },
+  "f_sup_rifle": {
+   "dur": 0.38,
+   "onsetMs": 0.0
+  },
+  "f_sup_sniper": {
+   "dur": 0.6,
+   "onsetMs": 0.0
+  }
+ },
+ "fx": {
+  "x_equip_rifle": {
+   "dur": 0.45
+  },
+  "x_equip_pistol": {
+   "dur": 0.32
+  },
+  "x_equip_heavy": {
+   "dur": 0.6
+  },
+  "x_equip_blade": {
+   "dur": 0.4
+  },
+  "x_dry": {
+   "dur": 0.14
+  },
+  "x_shell_in": {
+   "dur": 0.24
+  },
+  "x_pump": {
+   "dur": 0.6,
+   "events": {
+    "back": 0.27,
+    "fwd": 0.48
+   }
+  },
+  "x_bolt_cycle": {
+   "dur": 0.95,
+   "events": {
+    "lift": 0.25,
+    "back": 0.42,
+    "fwd": 0.61,
+    "down": 0.72
+   }
+  },
+  "x_bolt_close": {
+   "dur": 0.26
+  },
+  "x_swing_blade": {
+   "dur": 0.32
+  },
+  "x_swing_blunt": {
+   "dur": 0.4
+  },
+  "x_hit_blade": {
+   "dur": 0.34
+  },
+  "x_hit_blunt": {
+   "dur": 0.36
+  },
+  "x_spin": {
+   "dur": 1.0
+  }
+ }
+}

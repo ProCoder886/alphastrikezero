@@ -1,0 +1,243 @@
+/* ============================================================================================
+   Responsive layout and touch controls.
+   touch.js (UIFIT) sets on <html>:
+     rsp        compact layout: portrait screens, phones and small windows (everything is sized in rem)
+     portrait / landscape
+     touch      touch controls are active
+   and --s (the UI scale): 1rem = 10px * --s.  Reference sizes: 78 x 39 rem portrait, 40 x 80 rem landscape.
+   No screen scrolls: lists that do not fit are paged (touch.js Pager), settings / help use tabs.
+   ============================================================================================ */
+:root{--sl:env(safe-area-inset-left,0px);--sr:env(safe-area-inset-right,0px);--st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);--s:1}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overscroll-behavior:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+body{overscroll-behavior:none;-webkit-touch-callout:none;position:fixed;inset:0;width:100%}
+html.rsp{font-size:calc(10px * var(--s))}
+.pgHide{display:none!important}
+.iconBtn i{font-style:normal}
+.iconBtn .s{display:none}
+html.rsp .iconBtn .l{display:none}
+html.rsp .iconBtn .s{display:inline}
+button{touch-action:manipulation}
+
+/* ---------- shared widgets (every layout) ---------- */
+.subtabs{display:none}
+.pagerBar{display:none;align-items:center;justify-content:center;gap:1rem;flex:none;min-height:3.6rem;margin-top:.6rem;font:600 1.1rem Consolas,monospace;letter-spacing:.2em;color:#9aa4b1}
+.pagerBar.on{display:flex}
+.pagerBar button{pointer-events:auto;cursor:pointer;min-width:4.6rem;height:3.9rem;background:rgba(230,42,94,.1);border:1px solid var(--amber);color:var(--amber);font:inherit;font-size:1.3rem;letter-spacing:0;padding:0 1rem}
+.pagerBar button:disabled{opacity:.25;cursor:default}
+.pagerBar b{color:#fff;font-weight:600}
+@media (hover:none){
+  .btn:hover{background:rgba(230,42,94,.08);color:var(--amber);transform:none;box-shadow:none}
+  .btn.sub:hover{background:transparent;color:#9aa4b1;transform:none}
+  .chip:hover{border-color:#3a434f;background:rgba(0,0,0,.55)}
+  .chip.active:hover{border-color:var(--amber);background:rgba(230,42,94,.14)}
+  .iconBtn:hover{background:rgba(10,14,19,.55);border-color:rgba(230,42,94,.35);color:#e8c8cd;box-shadow:none}
+  #modeTabs .tab:hover{border-color:#3a434f;color:#9aa4b1}
+  #modeTabs .tab.active:hover{border-color:var(--amber);color:#fff}
+  .winX:hover{background:transparent;border-color:#4a3a3e;color:#c8a8ae}
+}
+
+/* ---------- touch layer ---------- */
+#touchUI{position:fixed;inset:0;z-index:6;touch-action:none;pointer-events:none;-webkit-user-select:none;user-select:none}
+html:not(.touch) #touchUI{display:none!important}
+#tzLook,#tzMove{position:absolute;pointer-events:auto;touch-action:none}
+#tzLook{inset:0}
+#tzMove{left:0;top:18%;bottom:0;width:44%}
+html.portrait #tzMove{top:46%;width:58%}
+#joyBase{position:absolute;left:calc(var(--sl) + 2.6rem);bottom:calc(var(--sb) + 2.6rem);width:12rem;height:12rem;border-radius:50%;border:.25rem solid rgba(255,255,255,.34);box-shadow:0 0 0 .1rem rgba(0,0,0,.35);background:radial-gradient(circle,rgba(255,255,255,.07),rgba(255,255,255,.02));pointer-events:none;transition:opacity .15s}
+html.portrait #joyBase{bottom:calc(var(--sb) + 3.4rem)}
+#joyBase.moved{bottom:auto}
+#joyBase.live{border-color:rgba(230,42,94,.7);background:radial-gradient(circle,rgba(230,42,94,.14),rgba(230,42,94,.03))}
+#joyKnob{position:absolute;left:50%;top:50%;width:5rem;height:5rem;margin:-2.5rem 0 0 -2.5rem;border-radius:50%;background:rgba(255,255,255,.22);border:.2rem solid rgba(255,255,255,.45);transform:translate(var(--kx,0px),var(--ky,0px))}
+#joyBase.live #joyKnob{background:rgba(230,42,94,.5);border-color:var(--amber)}
+#joyBase.sprint #joyKnob{background:rgba(255,214,120,.65);border-color:#ffd678}
+/* icon buttons: round, compact, an SVG icon and a small caption; pressed = shrink + glow + a ripple from the finger */
+.tb{pointer-events:auto;touch-action:none;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.12rem;min-width:0;min-height:0;padding:0;border-radius:50%;
+  background:radial-gradient(circle at 50% 32%,rgba(34,40,51,.66),rgba(8,11,16,.62));border:.15rem solid rgba(230,42,94,.5);box-shadow:0 .2rem .7rem rgba(0,0,0,.38),inset 0 .1rem 0 rgba(255,255,255,.07);
+  color:#f2e1e4;font-family:Consolas,"SF Mono",Menlo,monospace;text-align:center;line-height:1;-webkit-user-select:none;user-select:none;outline:none;-webkit-tap-highlight-color:transparent;
+  transition:transform .09s ease-out,background-color .12s,border-color .12s,box-shadow .12s}
+.tb .ic{width:44%;height:44%;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 .1rem .1rem rgba(0,0,0,.65));pointer-events:none}
+.tb span{font-size:.6rem;font-weight:700;letter-spacing:.08em;opacity:.78;pointer-events:none;white-space:nowrap}
+.tb b{font-size:1rem;font-weight:700;letter-spacing:.02em;pointer-events:none}
+.tb.on{transform:scale(.9);background:radial-gradient(circle at 50% 40%,rgba(255,96,120,.8),rgba(150,20,40,.66));border-color:#ff9aab;box-shadow:0 0 1.3rem rgba(230,42,94,.7),inset 0 0 .8rem rgba(255,255,255,.2)}
+.tb .rip{position:absolute;border-radius:50%;pointer-events:none;width:12rem;height:12rem;margin:-6rem 0 0 -6rem;background:radial-gradient(circle,rgba(255,255,255,.6),rgba(255,150,168,.28) 42%,rgba(255,150,168,0) 68%);transform:scale(0);animation:tbRip .42s ease-out forwards}
+@keyframes tbRip{to{transform:scale(1);opacity:0}}
+.tb.lit{background:radial-gradient(circle at 50% 32%,rgba(125,255,154,.3),rgba(20,60,32,.55));border-color:#7dff9a;color:#d8ffe2}
+.tb.lit.blue{background:radial-gradient(circle at 50% 32%,rgba(143,228,255,.3),rgba(18,50,66,.55));border-color:#8fe4ff;color:#e0f8ff}
+#tcluster{position:absolute;right:calc(var(--sr) + 1.2rem);bottom:calc(var(--sb) + 1.2rem);display:grid;grid-template-columns:repeat(4,var(--c,4.2rem));grid-template-rows:repeat(4,var(--c,4.2rem));gap:var(--cg,.55rem)}
+html.rsp.landscape #tcluster{--c:4.3rem}
+html.portrait #tcluster{--c:4.4rem;bottom:calc(var(--sb) + 2rem)}
+.t-swap{grid-area:1/1}.t-nv{grid-area:1/2}.t-melee{grid-area:1/3}.t-gren{grid-area:1/4}
+.t-kick{grid-area:2/1}.t-breath{grid-area:2/1}.t-prone{grid-area:2/2}.t-reload{grid-area:2/3}.t-jump{grid-area:2/4}
+.t-use{grid-area:3/1/5/2}.t-crouch{grid-area:3/2}.t-aim{grid-area:4/2}.t-fire{grid-area:3/3/5/5}
+.t-fire{background:radial-gradient(circle at 50% 38%,rgba(255,80,104,.46),rgba(110,12,28,.42));border-width:.25rem;border-color:rgba(255,92,116,.75);box-shadow:0 0 1.4rem rgba(230,42,94,.3),0 .3rem .9rem rgba(0,0,0,.4)}
+.t-fire .ic{width:40%;height:40%;stroke-width:1.6}
+.t-fire span{font-size:.85rem;letter-spacing:.24em;text-indent:.24em}
+.t-reload{border-color:rgba(255,214,120,.6)}
+.t-use{border-radius:2.2rem;border-color:#ffd678;color:#ffe9b0;display:none}
+.t-use.show{display:flex;animation:tbPulse 1s ease-in-out infinite alternate}
+.t-breath{display:none}
+.scoped .t-breath{display:flex}
+.scoped .t-kick{display:none}
+@keyframes tbPulse{from{background-color:rgba(255,214,120,.1)}to{background-color:rgba(255,214,120,.38)}}
+#tbPause{position:absolute;top:calc(var(--st) + .8rem);right:calc(var(--sr) + .8rem);width:4.2rem;height:4.2rem;flex-direction:row;gap:.45rem;border-radius:1.1rem}
+#tbPause i{display:block;width:.45rem;height:1.6rem;background:#f0d8dc;border-radius:.1rem}
+#touchSlots{display:none}
+/* weapon switcher: previous / current (opens the inventory wheel) / next */
+#touchWeap{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(var(--sb) + 1.2rem);display:flex;align-items:center;gap:.5rem}
+html.portrait #touchWeap{bottom:calc(var(--sb) + 23rem)}
+#touchWeap .tw-prev,#touchWeap .tw-next{width:3.8rem;height:3.8rem}
+#touchWeap .tw-prev .ic,#touchWeap .tw-next .ic{width:52%;height:52%;stroke-width:2.4}
+#touchWeap .tw-cur{flex-direction:row;gap:.6rem;height:3.8rem;min-width:13rem;max-width:20rem;padding:0 1.2rem 0 .9rem;border-radius:1.9rem;border-color:rgba(255,255,255,.28)}
+#touchWeap .tw-cur .ic{width:2.1rem;height:2.1rem}
+#touchWeap .twN{font-size:.95rem;letter-spacing:.06em;opacity:1;overflow:hidden;text-overflow:ellipsis;max-width:11rem}
+#touchWeap .twA{font-size:.85rem;opacity:.72}
+
+/* ============================== desktop (roomy layout) ============================== */
+#modeTabs .tab .s{display:none}
+html:not(.rsp) #armoryBtn2{display:none}
+html:not(.rsp) #menuTop h1{white-space:nowrap}
+html:not(.rsp) .winX{width:32px;height:32px}
+/* ============================== compact layout (rsp) ============================== */
+/* ----- screens ----- */
+html.rsp .screen,html.rsp .win{backdrop-filter:none}
+html.rsp .screen{padding:calc(var(--st) + 1rem) calc(var(--sr) + 1.2rem) calc(var(--sb) + 1rem) calc(var(--sl) + 1.2rem)}
+html.rsp .screen h1{font-size:4rem;letter-spacing:.3em;text-indent:.3em;line-height:1.15}
+html.rsp .tag{font-size:1.1rem;letter-spacing:.24em;text-indent:.24em;margin:.6rem 0 1.6rem}
+html.rsp .btn{padding:1.4rem 3rem;font-size:1.4rem;letter-spacing:.26em;text-indent:.26em;min-height:4.8rem}
+html.rsp .btn.sub{padding:1rem 1.6rem;font-size:1.2rem;margin-top:1rem;min-height:4.2rem;letter-spacing:.2em;text-indent:.2em}
+html.rsp #pause .btn,html.rsp #death .btn{width:min(34rem,92%)}
+html.rsp #pause .btn.sub{min-width:0}
+html.rsp #deathStats{font-size:1.4rem;letter-spacing:.1em;line-height:1.75;margin:.4rem 0 2rem;max-width:100%}
+html.rsp #deathStats .mut{font-size:1.1rem}
+html.rsp #loadingScreen h1{font-size:2.6rem!important;letter-spacing:.26em!important;text-indent:.26em}
+html.rsp #loadBarWrap{width:min(30rem,70vw)}
+html.rsp #loadText{font-size:1.1rem;text-align:center;max-width:90vw;line-height:1.6}
+
+/* ----- windows ----- */
+html.rsp .win{align-items:stretch;justify-content:stretch;padding:var(--st) var(--sr) var(--sb) var(--sl)}
+html.rsp .winBox,html.rsp .winBox.wide{width:100%;max-width:none;max-height:none;height:100%;padding:.8rem 1.2rem 1rem;display:flex;flex-direction:column;box-shadow:none}
+html.rsp .winHead{font-size:1.3rem;letter-spacing:.3em;flex:none;padding-bottom:.6rem;margin-bottom:.8rem}
+html.rsp .winX{width:4.2rem;height:4.2rem;font-size:1.6rem}
+html.rsp .subtabs{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:.4rem;margin:0 0 .8rem;flex:none}
+html.rsp .subtabs button{pointer-events:auto;cursor:pointer;background:rgba(0,0,0,.5);border:1px solid #3a434f;color:#9aa4b1;font:inherit;font-size:1.05rem;letter-spacing:.08em;padding:.6rem .2rem;min-height:4rem;line-height:1.1}
+html.rsp .subtabs button.active{border-color:var(--amber);background:var(--amber);color:#fff}
+html.rsp .settings{display:flex;flex-direction:column;gap:.2rem;flex:1;min-height:0;padding:0;overflow:hidden}
+html.landscape .settings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2.4rem;align-content:start}
+html.rsp .settings .row{margin:0;min-height:4.4rem;font-size:1.1rem;letter-spacing:.1em;gap:1rem}
+html.rsp .settings .row .btn.sub{min-width:9rem;min-height:4rem;padding:.6rem 1.2rem;margin:0;font-size:1.1rem}
+html.rsp .settings input[type=range]{width:min(17rem,42%);height:3.4rem}
+html.rsp .settings[data-tab="c"] .row:not([data-g="c"]),html.rsp .settings[data-tab="a"] .row:not([data-g="a"]),html.rsp .settings[data-tab="g"] .row:not([data-g="g"]),html.rsp .settings[data-tab="h"] .row:not([data-g="h"]){display:none}
+html:not(.touch) .settings .row[data-touch]{display:none!important}
+html.rsp .howCols{display:block;flex:1;min-height:0;overflow:hidden;font-size:1.15rem;line-height:1.55;letter-spacing:.03em}
+html.rsp .howCols > div{display:block}
+html.rsp .howCols .ctrls{font-size:1.1rem;line-height:1.85;padding:1rem 1.2rem;letter-spacing:.06em}
+html.rsp .howCols p{margin:0 0 .8rem}
+html.rsp .howCols .grpTitle{font-size:1.1rem}
+html.rsp .howCols[data-tab="c"] [data-g]:not([data-g="c"]),html.rsp .howCols[data-tab="w"] [data-g]:not([data-g="w"]),html.rsp .howCols[data-tab="m"] [data-g]:not([data-g="m"]),html.rsp .howCols[data-tab="t"] [data-g]:not([data-g="t"]){display:none}
+html.touch .ctrlsKb{display:none}
+html:not(.touch) .ctrlsTouch{display:none}
+html.rsp #intelList{display:flex;flex-direction:column;gap:.5rem;flex:1;min-height:0;overflow:hidden}
+html.landscape #intelList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:max-content;align-content:start;gap:.5rem 1rem}
+html.rsp .intelRow{grid-template-columns:2.6rem 3.8rem minmax(0,1fr);gap:.8rem;padding:.6rem .8rem;font-size:.95rem;align-items:start}
+html.rsp .intelRow .th{grid-column:1/-1}
+html.rsp .intelRow .rk{font-size:1.5rem}
+html.rsp .intelRow .sw{width:3.8rem;height:3.8rem}
+html.rsp .intelRow .nm b{font-size:1.15rem}
+html.rsp .intelRow .nm em{font-size:.95rem;line-height:1.35}
+html.rsp .intelRow .th small{font-size:.85rem}
+html.rsp .intelRow .th span{font-size:.85rem}
+
+/* ----- HUD ----- */
+html.rsp #hud{font-size:1rem}
+html.rsp .lbl{font-size:.8rem}
+html.rsp #minimapWrap{top:calc(var(--st) + .8rem);left:calc(var(--sl) + .8rem);padding:.4rem}
+html.rsp #minimapMask,html.rsp #minimap{width:7.4rem;height:7.4rem}
+html.rsp #minimap{border-width:.2rem}
+html.rsp #topBox{top:calc(var(--st) + .8rem);left:calc(var(--sl) + 22rem);right:calc(var(--sr) + 5.6rem);width:fit-content;margin:0 auto;transform:none;justify-content:center;gap:1.4rem;padding:.5rem 1rem;align-items:flex-end}
+html.rsp #topBox > span{display:flex;flex-direction:column;align-items:center;gap:.1rem;min-width:0}
+html.rsp #topBox .v{font-size:1.9rem;line-height:1}
+html.rsp #topBox .lbl{font-size:.8rem;letter-spacing:.14em;margin:0}
+html.rsp #diffBadge{display:none!important}
+html.rsp #hpBox{left:calc(var(--sl) + 9.8rem);top:calc(var(--st) + .8rem);bottom:auto;min-width:0;width:11.6rem;padding:.5rem .8rem}
+html.rsp #healthNum{font-size:2.4rem}
+html.rsp #healthBar{height:.5rem;margin-top:.5rem}
+html.rsp #stamBar{height:.3rem;margin-top:.3rem}
+html.rsp #ammoBox{right:calc(var(--sr) + .8rem);bottom:auto;top:calc(var(--st) + 5.6rem);min-width:0;width:13rem;padding:.5rem .8rem}
+html.rsp #weaponName{font-size:.9rem;letter-spacing:.1em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html.rsp #ammoRow{font-size:2.6rem}
+html.rsp #ammoRes{font-size:1.3rem}
+html.rsp #reloadHint{font-size:.8rem;height:1rem;margin-bottom:.2rem;letter-spacing:.14em;white-space:nowrap}
+html.rsp #fps{top:auto;bottom:calc(var(--sb) + .4rem);right:auto;left:calc(var(--sl) + .6rem);font-size:.8rem;padding:.2rem .5rem}
+html.rsp #objPanel{top:calc(var(--st) + 9.6rem);left:calc(var(--sl) + .8rem);width:20rem;font-size:.95rem;line-height:1.45;letter-spacing:.04em;padding:.6rem .9rem}
+html.rsp #objPanel .mh,html.rsp #objPanel .oh{font-size:.95rem;margin-bottom:.4rem;letter-spacing:.16em}
+html.rsp #objPanel .oi.sub{font-size:.85rem}
+html.rsp #killfeed{top:calc(var(--st) + 5.4rem);left:calc(var(--sl) + 23rem);right:calc(var(--sr) + 15rem);text-align:center;font-size:1rem}
+html.rsp #killfeed div{display:block;width:fit-content;max-width:100%;margin:0 auto .3rem;padding:.3rem .9rem;border-right:0;border-bottom:.2rem solid var(--amber)}
+html.rsp #killfeed .hs{border-bottom-color:var(--red)}
+html.rsp #killfeed div:nth-child(n+4){display:none}
+html.rsp #hint{display:none!important}
+html.rsp #grenadeHUD{right:calc(var(--sr) + .8rem);bottom:auto;top:calc(var(--st) + 12rem);font-size:1rem}
+html.rsp #nvgStatus{right:calc(var(--sr) + .8rem);bottom:auto;top:calc(var(--st) + 14.4rem);font-size:.85rem;padding:.3rem .8rem;letter-spacing:.1em}
+html.rsp #nvgStatus b,html.rsp #nvgStatus i{display:none}
+html.rsp #inventoryUI{right:calc(var(--sr) + .8rem);bottom:calc(var(--sb) + .8rem)}
+html.rsp .inv-slot{width:14rem;font-size:.9rem;padding:.3rem .8rem}
+html.rsp .inv-slot.active{width:15.4rem}
+html.touch #inventoryUI,html.touch #grenadeHUD,html.touch #nvgStatus{display:none!important}
+html.portrait #grenadeHUD,html.portrait #nvgStatus{display:none!important}
+html.rsp #interactHint{top:calc(50% + 4rem);font-size:1.2rem;padding:.6rem 1.2rem;max-width:80%;text-align:center;letter-spacing:.08em}
+html.rsp #holdBar{top:calc(50% + 8.2rem);font-size:1.1rem}
+html.portrait #holdBar{top:calc(50% - 4.5rem)}
+html.rsp #holdBar .track{width:20rem;height:.6rem}
+html.rsp #breathBar{bottom:auto;top:calc(50% + 11rem);width:20rem}
+html.portrait #breathBar{top:calc(50% - 4.5rem)}
+html.rsp #nvgHint{top:calc(50% - 4.6rem);font-size:1.05rem;padding:.6rem 1.2rem;letter-spacing:.1em;white-space:normal;text-align:center;width:max-content;max-width:28rem}
+html.portrait #nvgHint{top:calc(50% + 1.6rem);max-width:86%}
+html.rsp #waveBanner{top:42%;left:calc(var(--sl) + 24rem);right:calc(var(--sr) + 24rem);padding:0}
+html.rsp #waveBanner h2{font-size:2.4rem;letter-spacing:.16em;text-indent:.16em}
+html.portrait #waveBanner{top:calc(50% - 10rem);left:calc(var(--sl) + .8rem);right:calc(var(--sr) + .8rem)}
+html.portrait #waveBanner h2{font-size:2.3rem}
+html.rsp #waveBanner p{font-size:1.1rem;letter-spacing:.14em;line-height:1.5}
+html.rsp #respawn h2{font-size:2.6rem;letter-spacing:.22em}
+html.rsp #respawn .lbl{font-size:1.1rem}
+html.rsp #killcam{bottom:auto;top:calc(50% + 3rem)}
+html.rsp #kcTitle{font-size:3.2rem;letter-spacing:.3em;text-indent:.3em}
+html.rsp #kcSub{font-size:1.2rem;letter-spacing:.2em;margin-top:.6rem}
+html.rsp .kcHint{font-size:.9rem;margin-top:1rem}
+html.rsp #slowmoTag{top:calc(50% + 11rem)}
+html.rsp #slowmoTag b{font-size:2.1rem;letter-spacing:.35em;text-indent:.35em}
+html.rsp #slowmoTag.lv3 b{font-size:2.6rem}
+html.rsp #slowmoTag span{font-size:.9rem}
+html.rsp #crosshair{transform:scale(1)}
+html.rsp #pgLevel{top:16%}
+html.rsp #pgLevel b{font-size:3.2rem;letter-spacing:.3em;text-indent:.3em}
+html.rsp #pgLevel small{font-size:1rem}
+html.rsp #pgPops{left:calc(50% + 4rem);top:calc(50% + 2rem)}
+html.rsp .pgPop b{font-size:1.4rem}
+html.rsp .pgPop i,html.rsp .pgPop span{font-size:.9rem}
+html.rsp #pgToasts{right:auto;left:50%;transform:translateX(-50%);top:calc(var(--st) + 11rem);align-items:center;width:min(30rem,calc(100% - 2rem))}
+html.portrait #pgToasts{top:calc(50% - 10rem)}
+body.hudBusy #pgToasts{visibility:hidden}
+html.rsp .pgToast{min-width:0;max-width:none;width:100%;padding:.6rem 1rem .6rem .8rem}
+html.rsp .pgToast img{width:6rem;height:3.4rem}
+html.rsp .pgToast div{font-size:.9rem}
+html.rsp .pgToast b{font-size:1.1rem}
+html.rsp .pgToast span{font-size:.85rem}
+html.rsp .dmgNum{font-size:1.4rem}
+html.rsp .dmgNum.hs{font-size:1.7rem}
+
+/* portrait HUD: the status strip sits under the title row, the thumbs own the lower third */
+html.portrait #topBox{left:calc(var(--sl) + 9.8rem)}
+html.portrait #topBox .v{font-size:1.7rem}
+html.portrait #topBox{gap:1rem;padding:.5rem .6rem}
+html.portrait #hpBox{top:calc(var(--st) + 9.8rem);left:calc(var(--sl) + .8rem);width:17rem}
+html.portrait #ammoBox{top:calc(var(--st) + 9.8rem);width:19rem}
+html.portrait #objPanel{top:calc(var(--st) + 18rem);width:22rem}
+html.portrait #killfeed{top:calc(var(--st) + 18rem);left:auto;right:calc(var(--sr) + .8rem);width:14rem;text-align:right}
+html.portrait #killfeed div{margin-right:0;margin-left:auto}
+html.portrait #fps{bottom:auto;left:calc(var(--sl) + 10rem);top:calc(var(--st) + 5.4rem)}
+html.portrait #interactHint{top:calc(50% + 6.4rem)}
+
+/* very narrow / short windows */
+@media (max-height:340px){
+  html.landscape .sidePanel{width:21rem}
+}

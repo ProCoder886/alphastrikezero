@@ -1,0 +1,711 @@
+{
+  "fire": {
+    "sf_asasault_rifle_2": {
+      "dur": 0.21,
+      "onsetMs": 0,
+      "original": "AsAsault Rifle 2.mp3"
+    },
+    "sf_assault_rifle_1": {
+      "dur": 0.21,
+      "onsetMs": 0,
+      "original": "Assault Rifle 1.mp3"
+    },
+    "sf_light_machine_gun_1": {
+      "dur": 0.19,
+      "onsetMs": 0,
+      "original": "Light Machine Gun 1.mp3"
+    },
+    "sf_light_machine_gun_2": {
+      "dur": 0.084,
+      "onsetMs": 0,
+      "original": "Light Machine Gun 2.mp3"
+    },
+    "sf_light_machine_gun_3": {
+      "dur": 0.19,
+      "onsetMs": 0,
+      "original": "Light Machine Gun 3.mp3"
+    },
+    "sf_light_machine_gun_4": {
+      "dur": 0.19,
+      "onsetMs": 0,
+      "original": "Light Machine Gun 4.mp3"
+    },
+    "sf_light_machine_gun_5": {
+      "dur": 0.19,
+      "onsetMs": 0,
+      "original": "Light Machine Gun 5.mp3"
+    },
+    "sf_light_machine_gun_6": {
+      "dur": 0.114,
+      "onsetMs": 0,
+      "original": "Light Machine Gun 6.mp3"
+    },
+    "sf_machine_gun_1": {
+      "dur": 0.28,
+      "onsetMs": 0,
+      "original": "Machine Gun 1.mp3"
+    },
+    "sf_machine_gun_2": {
+      "dur": 0.28,
+      "onsetMs": 0,
+      "original": "Machine Gun 2.mp3"
+    },
+    "sf_machine_gun_3": {
+      "dur": 0.28,
+      "onsetMs": 0,
+      "original": "Machine Gun 3.mp3"
+    },
+    "sf_machine_gun_4": {
+      "dur": 0.124,
+      "onsetMs": 0,
+      "original": "Machine Gun 4.mp3"
+    },
+    "sf_machine_gun_5": {
+      "dur": 0.28,
+      "onsetMs": 0,
+      "original": "Machine Gun 5.mp3"
+    },
+    "sf_pistol_1": {
+      "dur": 0.34,
+      "onsetMs": 0,
+      "original": "Pistol 1.mp3"
+    },
+    "sf_pistol_2": {
+      "dur": 0.34,
+      "onsetMs": 0,
+      "original": "Pistol 2.mp3"
+    },
+    "sf_pistol_3": {
+      "dur": 0.34,
+      "onsetMs": 0,
+      "original": "Pistol 3.mp3"
+    },
+    "sf_pistol_4": {
+      "dur": 0.34,
+      "onsetMs": 0,
+      "original": "Pistol 4.mp3"
+    },
+    "sf_rpg_1": {
+      "dur": 1.35,
+      "onsetMs": 0,
+      "original": "RPG 1.mp3"
+    },
+    "sf_shotgun_1": {
+      "dur": 0.384,
+      "onsetMs": 0,
+      "original": "Shotgun 1.mp3"
+    },
+    "sf_shotgun_2": {
+      "dur": 0.39,
+      "onsetMs": 0,
+      "original": "Shotgun 2.mp3"
+    },
+    "sf_sub_machine_gun_1": {
+      "dur": 0.15,
+      "onsetMs": 0,
+      "original": "Sub Machine Gun 1.mp3"
+    },
+    "sf_sub_machine_gun_2": {
+      "dur": 0.094,
+      "onsetMs": 0,
+      "original": "Sub Machine Gun 2.mp3"
+    },
+    "sf_sub_machine_gun_3": {
+      "dur": 0.134,
+      "onsetMs": 0,
+      "original": "Sub Machine Gun 3.mp3"
+    },
+    "sf_sub_machine_gun_4": {
+      "dur": 0.075,
+      "onsetMs": 0,
+      "original": "Sub Machine Gun 4.mp3"
+    },
+    "sf_sub_machine_gun_5": {
+      "dur": 0.075,
+      "onsetMs": 0,
+      "original": "Sub Machine Gun 5.mp3"
+    },
+    "sf_sub_machine_gun_6": {
+      "dur": 0.15,
+      "onsetMs": 0,
+      "original": "Sub Machine Gun 6.mp3"
+    }
+  },
+  "reload": {
+    "sr_assault_rifle_reload_1": {
+      "id": "sr_assault_rifle_reload_1",
+      "dur": 4.44,
+      "events": {
+        "magOut": 1.257,
+        "magIn": 2.551,
+        "boltPull": 3.907,
+        "boltRelease": 4.047
+      },
+      "original": "Assault Rifle Reload 1.mp3",
+      "markersEstimated": true
+    },
+    "sr_assault_rifle_reload_2": {
+      "id": "sr_assault_rifle_reload_2",
+      "dur": 5.592,
+      "events": {
+        "magOut": 0.867,
+        "magIn": 3.116,
+        "boltPull": 4.77,
+        "boltRelease": 4.91
+      },
+      "original": "Assault Rifle Reload 2.mp3",
+      "markersEstimated": true
+    },
+    "sr_light_machine_gun_reload_1": {
+      "id": "sr_light_machine_gun_reload_1",
+      "dur": 2.712,
+      "events": {
+        "magOut": 1.087,
+        "magIn": 2.045,
+        "boltPull": 2.435,
+        "boltRelease": 2.549
+      },
+      "original": "Light Machine Gun Reload 1.mp3",
+      "markersEstimated": true
+    },
+    "sr_light_machine_gun_reload_2": {
+      "id": "sr_light_machine_gun_reload_2",
+      "dur": 3.408,
+      "events": {
+        "magOut": 0.561,
+        "magIn": 1.804,
+        "boltPull": 2.826,
+        "boltRelease": 2.966
+      },
+      "original": "Light Machine Gun Reload 2.mp3",
+      "markersEstimated": true
+    },
+    "sr_light_machine_gun_reload_3": {
+      "id": "sr_light_machine_gun_reload_3",
+      "dur": 2.688,
+      "events": {
+        "magOut": 0.64,
+        "magIn": 1.446,
+        "boltPull": 2.145,
+        "boltRelease": 2.285
+      },
+      "original": "Light Machine Gun Reload 3.mp3",
+      "markersEstimated": true
+    },
+    "sr_light_machine_gun_reload_4": {
+      "id": "sr_light_machine_gun_reload_4",
+      "dur": 2.904,
+      "events": {
+        "magOut": 0.431,
+        "magIn": 2.054,
+        "boltPull": 2.565,
+        "boltRelease": 2.705
+      },
+      "original": "Light Machine Gun Reload 4.mp3",
+      "markersEstimated": true
+    },
+    "sr_light_machine_gun_reload_5": {
+      "id": "sr_light_machine_gun_reload_5",
+      "dur": 2.736,
+      "events": {
+        "magOut": 0.755,
+        "magIn": 1.541,
+        "boltPull": 2.314,
+        "boltRelease": 2.454
+      },
+      "original": "Light Machine Gun Reload 5.mp3",
+      "markersEstimated": true
+    },
+    "sr_light_machine_gun_reload_6": {
+      "id": "sr_light_machine_gun_reload_6",
+      "dur": 2.712,
+      "events": {
+        "magOut": 0.62,
+        "magIn": 2.057,
+        "boltPull": 2.363,
+        "boltRelease": 2.503
+      },
+      "original": "Light Machine Gun Reload 6.mp3",
+      "markersEstimated": true
+    },
+    "sr_m4a1": {
+      "id": "sr_m4a1",
+      "dur": 2.184,
+      "events": {
+        "magOut": 0.402,
+        "magIn": 1.6,
+        "boltPull": 1.954,
+        "boltRelease": 2.053
+      },
+      "original": "M4A1 .mp3",
+      "markersEstimated": true
+    },
+    "sr_machine_gun_reload_1": {
+      "id": "sr_machine_gun_reload_1",
+      "dur": 4.416,
+      "events": {
+        "magOut": 0.618,
+        "magIn": 2.36,
+        "boltPull": 3.996,
+        "boltRelease": 4.136
+      },
+      "original": "Machine Gun Reload 1.mp3",
+      "markersEstimated": true
+    },
+    "sr_machine_gun_reload_2": {
+      "id": "sr_machine_gun_reload_2",
+      "dur": 7.248,
+      "events": {
+        "magOut": 1.219,
+        "magIn": 4.703,
+        "boltPull": 6.109,
+        "boltRelease": 6.249
+      },
+      "original": "Machine Gun Reload 2.mp3",
+      "markersEstimated": true
+    },
+    "sr_machine_gun_reload_3": {
+      "id": "sr_machine_gun_reload_3",
+      "dur": 2.712,
+      "events": {
+        "magOut": 0.62,
+        "magIn": 2.057,
+        "boltPull": 2.363,
+        "boltRelease": 2.503
+      },
+      "original": "Machine Gun Reload 3.mp3",
+      "markersEstimated": true
+    },
+    "sr_machine_gun_reload_4": {
+      "id": "sr_machine_gun_reload_4",
+      "dur": 4.44,
+      "events": {
+        "magOut": 1.533,
+        "magIn": 3.139,
+        "boltPull": 3.871,
+        "boltRelease": 4.011
+      },
+      "original": "Machine Gun Reload 4.mp3",
+      "markersEstimated": true
+    },
+    "sr_machine_gun_reload_5": {
+      "id": "sr_machine_gun_reload_5",
+      "dur": 4.296,
+      "events": {
+        "magOut": 0.649,
+        "magIn": 2.314,
+        "boltPull": 3.495,
+        "boltRelease": 3.635
+      },
+      "original": "Machine Gun Reload 5.mp3",
+      "markersEstimated": true
+    },
+    "sr_machine_gun_reload_6": {
+      "id": "sr_machine_gun_reload_6",
+      "dur": 3.384,
+      "events": {
+        "magOut": 1.002,
+        "magIn": 1.9,
+        "boltPull": 2.927,
+        "boltRelease": 3.067
+      },
+      "original": "Machine Gun Reload 6.mp3",
+      "markersEstimated": true
+    },
+    "sr_pistol_reload_1": {
+      "id": "sr_pistol_reload_1",
+      "dur": 2.952,
+      "events": {
+        "magOut": 0.917,
+        "magIn": 1.885,
+        "boltPull": 2.363,
+        "boltRelease": 2.503
+      },
+      "original": "Pistol Reload 1.mp3",
+      "markersEstimated": true
+    },
+    "sr_pistol_reload_2": {
+      "id": "sr_pistol_reload_2",
+      "dur": 2.256,
+      "events": {
+        "magOut": 0.316,
+        "magIn": 1.695,
+        "boltPull": 2.001,
+        "boltRelease": 2.121
+      },
+      "original": "Pistol Reload 2.mp3",
+      "markersEstimated": true
+    },
+    "sr_pistol_reload_3": {
+      "id": "sr_pistol_reload_3",
+      "dur": 2.04,
+      "events": {
+        "magOut": 0.418,
+        "magIn": 1.555,
+        "boltPull": 1.705,
+        "boltRelease": 1.845
+      },
+      "original": "Pistol Reload 3.mp3",
+      "markersEstimated": true
+    },
+    "sr_pistol_reload_4": {
+      "id": "sr_pistol_reload_4",
+      "dur": 3.552,
+      "events": {
+        "magOut": 1.061,
+        "magIn": 2.521,
+        "boltPull": 3.094,
+        "boltRelease": 3.234
+      },
+      "original": "Pistol Reload 4.mp3",
+      "markersEstimated": true
+    },
+    "sr_shotgun_reload_1": {
+      "id": "sr_shotgun_reload_1",
+      "dur": 2.976,
+      "events": {
+        "magOut": 0.8,
+        "magIn": 1.428,
+        "boltPull": 2.573,
+        "boltRelease": 2.713
+      },
+      "original": "Shotgun Reload 1.mp3",
+      "markersEstimated": true
+    },
+    "sr_shotgun_reload_2": {
+      "id": "sr_shotgun_reload_2",
+      "dur": 4.488,
+      "events": {
+        "magOut": 1.132,
+        "magIn": 2.154,
+        "boltPull": 3.597,
+        "boltRelease": 3.737
+      },
+      "original": "Shotgun Reload 2.mp3",
+      "markersEstimated": true
+    },
+    "sr_sub_machine_gun_reload_1": {
+      "id": "sr_sub_machine_gun_reload_1",
+      "dur": 3.816,
+      "events": {
+        "magOut": 1.242,
+        "magIn": 2.503,
+        "boltPull": 3.42,
+        "boltRelease": 3.56
+      },
+      "original": "Sub Machine Gun Reload 1.mp3",
+      "markersEstimated": true
+    },
+    "sr_sub_machine_gun_reload_2": {
+      "id": "sr_sub_machine_gun_reload_2",
+      "dur": 7.248,
+      "events": {
+        "magOut": 1.219,
+        "magIn": 4.703,
+        "boltPull": 6.109,
+        "boltRelease": 6.249
+      },
+      "original": "Sub Machine Gun Reload 2.mp3",
+      "markersEstimated": true
+    },
+    "sr_sub_machine_gun_reload_3": {
+      "id": "sr_sub_machine_gun_reload_3",
+      "dur": 2.712,
+      "events": {
+        "magOut": 0.62,
+        "magIn": 2.057,
+        "boltPull": 2.363,
+        "boltRelease": 2.503
+      },
+      "original": "Sub Machine Gun Reload 3.mp3",
+      "markersEstimated": true
+    },
+    "sr_sub_machine_gun_reload_4": {
+      "id": "sr_sub_machine_gun_reload_4",
+      "dur": 2.856,
+      "events": {
+        "magOut": 1.072,
+        "magIn": 2.055,
+        "boltPull": 2.36,
+        "boltRelease": 2.5
+      },
+      "original": "Sub Machine Gun Reload 4.mp3",
+      "markersEstimated": true
+    },
+    "sr_sub_machine_gun_reload_5": {
+      "id": "sr_sub_machine_gun_reload_5",
+      "dur": 3.024,
+      "events": {
+        "magOut": 0.735,
+        "magIn": 2.279,
+        "boltPull": 2.465,
+        "boltRelease": 2.605
+      },
+      "original": "Sub Machine Gun Reload 5.mp3",
+      "markersEstimated": true
+    }
+  },
+  "source": {
+    "sf_asasault_rifle_2": {
+      "file": "AsAsault Rifle 2.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.403
+    },
+    "sf_assault_rifle_1": {
+      "file": "Assault Rifle 1.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.847
+    },
+    "sf_light_machine_gun_1": {
+      "file": "Light Machine Gun 1.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.011
+    },
+    "sf_light_machine_gun_2": {
+      "file": "Light Machine Gun 2.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.038
+    },
+    "sf_light_machine_gun_3": {
+      "file": "Light Machine Gun 3.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.698
+    },
+    "sf_light_machine_gun_4": {
+      "file": "Light Machine Gun 4.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.907
+    },
+    "sf_light_machine_gun_5": {
+      "file": "Light Machine Gun 5.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.038
+    },
+    "sf_light_machine_gun_6": {
+      "file": "Light Machine Gun 6.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.534
+    },
+    "sf_machine_gun_1": {
+      "file": "Machine Gun 1.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.038
+    },
+    "sf_machine_gun_2": {
+      "file": "Machine Gun 2.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.959
+    },
+    "sf_machine_gun_3": {
+      "file": "Machine Gun 3.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.038
+    },
+    "sf_machine_gun_4": {
+      "file": "Machine Gun 4.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.038
+    },
+    "sf_machine_gun_5": {
+      "file": "Machine Gun 5.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.09
+    },
+    "sf_pistol_1": {
+      "file": "Pistol 1.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.489
+    },
+    "sf_pistol_2": {
+      "file": "Pistol 2.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.489
+    },
+    "sf_pistol_3": {
+      "file": "Pistol 3.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.384
+    },
+    "sf_pistol_4": {
+      "file": "Pistol 4.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.411
+    },
+    "sf_rpg_1": {
+      "file": "RPG 1.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.717
+    },
+    "sf_shotgun_1": {
+      "file": "Shotgun 1.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 3.866
+    },
+    "sf_shotgun_2": {
+      "file": "Shotgun 2.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.489
+    },
+    "sf_sub_machine_gun_1": {
+      "file": "Sub Machine Gun 1.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.829
+    },
+    "sf_sub_machine_gun_2": {
+      "file": "Sub Machine Gun 2.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.62
+    },
+    "sf_sub_machine_gun_3": {
+      "file": "Sub Machine Gun 3.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.064
+    },
+    "sf_sub_machine_gun_4": {
+      "file": "Sub Machine Gun 4.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.985
+    },
+    "sf_sub_machine_gun_5": {
+      "file": "Sub Machine Gun 5.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 2.09
+    },
+    "sf_sub_machine_gun_6": {
+      "file": "Sub Machine Gun 6.mp3",
+      "directory": "Gun Fire Selected",
+      "originalSeconds": 1.829
+    },
+    "sr_assault_rifle_reload_1": {
+      "file": "Assault Rifle Reload 1.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 4.44
+    },
+    "sr_assault_rifle_reload_2": {
+      "file": "Assault Rifle Reload 2.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 5.592
+    },
+    "sr_light_machine_gun_reload_1": {
+      "file": "Light Machine Gun Reload 1.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.712
+    },
+    "sr_light_machine_gun_reload_2": {
+      "file": "Light Machine Gun Reload 2.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 3.408
+    },
+    "sr_light_machine_gun_reload_3": {
+      "file": "Light Machine Gun Reload 3.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.688
+    },
+    "sr_light_machine_gun_reload_4": {
+      "file": "Light Machine Gun Reload 4.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.904
+    },
+    "sr_light_machine_gun_reload_5": {
+      "file": "Light Machine Gun Reload 5.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.736
+    },
+    "sr_light_machine_gun_reload_6": {
+      "file": "Light Machine Gun Reload 6.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.712
+    },
+    "sr_m4a1": {
+      "file": "M4A1 .mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.184
+    },
+    "sr_machine_gun_reload_1": {
+      "file": "Machine Gun Reload 1.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 4.416
+    },
+    "sr_machine_gun_reload_2": {
+      "file": "Machine Gun Reload 2.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 7.248
+    },
+    "sr_machine_gun_reload_3": {
+      "file": "Machine Gun Reload 3.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.712
+    },
+    "sr_machine_gun_reload_4": {
+      "file": "Machine Gun Reload 4.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 4.44
+    },
+    "sr_machine_gun_reload_5": {
+      "file": "Machine Gun Reload 5.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 4.296
+    },
+    "sr_machine_gun_reload_6": {
+      "file": "Machine Gun Reload 6.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 3.384
+    },
+    "sr_pistol_reload_1": {
+      "file": "Pistol Reload 1.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.952
+    },
+    "sr_pistol_reload_2": {
+      "file": "Pistol Reload 2.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.256
+    },
+    "sr_pistol_reload_3": {
+      "file": "Pistol Reload 3.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.04
+    },
+    "sr_pistol_reload_4": {
+      "file": "Pistol Reload 4.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 3.552
+    },
+    "sr_shotgun_reload_1": {
+      "file": "Shotgun Reload 1.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.976
+    },
+    "sr_shotgun_reload_2": {
+      "file": "Shotgun Reload 2.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 4.488
+    },
+    "sr_sub_machine_gun_reload_1": {
+      "file": "Sub Machine Gun Reload 1.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 3.816
+    },
+    "sr_sub_machine_gun_reload_2": {
+      "file": "Sub Machine Gun Reload 2.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 7.248
+    },
+    "sr_sub_machine_gun_reload_3": {
+      "file": "Sub Machine Gun Reload 3.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.712
+    },
+    "sr_sub_machine_gun_reload_4": {
+      "file": "Sub Machine Gun Reload 4.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 2.856
+    },
+    "sr_sub_machine_gun_reload_5": {
+      "file": "Sub Machine Gun Reload 5.mp3",
+      "directory": "Reload Sounds Selected",
+      "originalSeconds": 3.024
+    }
+  },
+  "format": "supplied-audio-1"
+}
